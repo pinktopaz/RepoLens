@@ -125,6 +125,22 @@ export default function AnalysisView({ repoInfo, analysis }: Props) {
           ))}
         </ul>
       </Section>
+
+      {/* Differentiation */}
+      {analysis.differentiation?.length > 0 && (
+        <Section title="⚔️ 유사 프로젝트 대비 차별점">
+          <div className="space-y-3">
+            {analysis.differentiation.map((d, i) => (
+              <div key={i} className="flex gap-3 items-start">
+                <span className="shrink-0 px-2 py-0.5 rounded-md text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 mt-0.5">
+                  vs {d.competitor}
+                </span>
+                <p className="text-slate-300 text-sm leading-relaxed">{d.difference}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
     </div>
   );
 }

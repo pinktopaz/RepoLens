@@ -56,13 +56,17 @@ Return ONLY a valid JSON object (no markdown, no explanation) with this exact st
   ],
   "entryPoints": ["어디서부터 코드를 읽으면 좋은지 한국어로 1~3개"],
   "dataFlow": "한국어로 데이터가 어떻게 흐르는지 설명 (입력 → 처리 → 출력)",
-  "useCases": ["한국어로 이 프로젝트를 어떤 상황에서 활용할 수 있는지 3~5개"]
+  "useCases": ["한국어로 이 프로젝트를 어떤 상황에서 활용할 수 있는지 3~5개"],
+  "differentiation": [
+    {"competitor": "유사 프로젝트 이름", "difference": "그 프로젝트는 ~한데, 이 프로젝트는 ~"}
+  ]
 }
 
-Include 5-15 most important files in fileMap. Make architecture diagram meaningful with actual module names from the code.`;
+Include 5-15 most important files in fileMap. Make architecture diagram meaningful with actual module names from the code.
+For differentiation: identify 3-5 well-known projects in the same category, and for each one write a concrete comparison in Korean starting with "~는 ~한데, 이 프로젝트는 ~" pattern.`;
 
     const message = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-4-6",
       max_tokens: 4000,
       messages: [{ role: "user", content: prompt }],
     });
